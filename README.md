@@ -73,7 +73,7 @@ making it easy for developers to explore and understand the available APIs.
         - *Responses*: Detailed information about the league, including teams and standings.
 
     - *POST /leagues*: Add a new league.
-        - *Request Body*: League details (e.g., name, country).
+        - *Request Body*: League details (e.g., name, country, level).
         - *Responses*: Confirmation of the league creation.
 
     - *PUT /leagues/{leagueId}*: Update information for an existing league.
@@ -87,6 +87,6 @@ making it easy for developers to explore and understand the available APIs.
 
 4. *Search Resource*
     - *GET /search*: Search across matches, teams, and leagues using Elasticsearch.
-        - *Parameters*: Query parameters for search terms (e.g., team name, league, match date).
+        - *Parameters*: Query parameters for search terms (e.g., team name, league, match date, match result).
         - *Responses*: Returns a list of relevant results, including matches, teams, or leagues.
 
