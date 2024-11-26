@@ -20,73 +20,143 @@ making it easy for developers to explore and understand the available APIs.
 *RESTful Resources Description (Swagger)*
 
 1. *Teams Resource*
-    - *GET /teams*: Retrieve a list of all teams.
-        - *Parameters*: Optional filters (e.g., country, league).
-        - *Responses*: Returns a list of teams.
+   
+   i.Retrieve Teams:
+   *Endpoint*: GET /teams
+   *Description*: Retrieve a list of all teams.
+   *Parameters*: Optional filters (e.g., country, league).
+   *Responses*:   200 OK: List of teams successfully retrieved.
+                  400 Bad Request: Invalid filter parameters.
 
-    - *GET /teams/{teamId}*: Retrieve detailed information about a specific team.
-        - *Parameters*: teamId (path parameter).
-        - *Responses*: Returns details about the team, including players and statistics.
+   ii.Retrieve Specific Team:
+   *Endpoint*: GET /teams/{teamId}
+   *Description*: Retrieve detailed information about a specific team.
+   *Parameters*: teamId (path): Unique identifier for the team.
+   *Responses*:   200 OK: Team details successfully retrieved.
+                  404 Not Found: Team not found.
 
-    - *POST /teams*: Add a new football team.
-        - *Request Body*: Team details (e.g., name, country, league).
-        - *Responses*: Confirmation of the team creation.
+   iii.Add Team:
+   *Endpoint*: POST /teams
+   *Description*: Add a new football team to the system.
+   *Request Body (JSON)*:{
+                           "name": "string",
+                           "country": "string",
+                           "league": "string"
+                          }
+   *Responses*:   201 Created: Team successfully added.
+                  400 Bad Request: Validation error in request body.
 
-    - *PUT /teams/{teamId}*: Update information for an existing team.
-        - *Parameters*: teamId (path parameter).
-        - *Request Body*: Updated team details.
-        - *Responses*: Confirmation of the team update.
+   iv.Update Team:
+   *Endpoint*: PUT /teams/{teamId}
+   *Description*: Update information for an existing team.
+   *Request Body (JSON)*:{
+                           "name": "string",
+                           "country": "string",
+                           "league": "string"
+                          }
+   *Responses*:   200 OK: Team successfully updated.
+                  400 Bad Request: Validation error in request body.
+                  404 Not Found: Team not found.
+   
+   v.Delete Team:
+   *Endpoint*: DELETE /teams/{teamId}
+   *Description*: Delete a team from the system.
+   *Parameters*: teamId (path): Unique identifier for the team.
+   *Responses*: 200 OK: Team successfully deleted.
+                403 Forbidden: Unauthorized access.
+                404 Not Found: Team not found.
 
-    - *DELETE /teams/{teamId}*: Delete a team from the system.
-        - *Parameters*: teamId (path parameter).
-        - *Responses*: Confirmation of the team deletion.
+   2. *Matches Resource*
+      i.Retrieve Matches:
+      *Endpoint*: GET /matches
+      *Description*: Retrieve a list of all matches.
+      *Parameters*: Optional filters (e.g., date, league, team).
+      *Responses*:   200 OK: List of matches successfully retrieved.
+                     400 Bad Request: Invalid filter parameters.
 
-2. *Matches Resource*
-    - *GET /matches*: Retrieve a list of all matches.
-        - *Parameters*: Optional filters (e.g., date, league, team).
-        - *Responses*: Returns a list of matches, including scores and other key details.
+      ii.Retrieve Specific Match:
+      *Endpoint*: GET /matches/{matchId}
+      *Description*: Retrieve detailed information about a specific match.
+      *Parameters*: matchId (path): Unique identifier for the match.
+      *Responses*:   200 OK: Match details successfully retrieved.
+                     404 Not Found: Match not found.
 
-    - *GET /matches/{matchId}*: Retrieve information about a specific match.
-        - *Parameters*: matchId (path parameter).
-        - *Responses*: Detailed information about the match, including teams, score, and venue.
+      iii.Add Match:
+      *Endpoint*: POST /matches
+      *Description*: Add a new football match to the system.
+      *Request Body (JSON)*:{
+                              "date": "string",
+                              "teams": ["string", "string"],
+                              "location": "string",
+                              "score": {
+                              "team1": "number",
+                              "team2": "number"
+                             }
+      *Responses*:   201 Created: Match successfully added.
+                     400 Bad Request: Validation error in request body.
 
-    - *POST /matches*: Add a new football match.
-        - *Request Body*: Match details (e.g., date, teams involved, location, score).
-        - *Responses*: Confirmation of the match creation.
+      iv.Update Match:
+      *Endpoint*: PUT /matches/{matchId}
+      *Description*: Update details of an existing match.
+      *Parameters*: matchId (path): Unique identifier for the match.
+      *Request Body (JSON)*:{
+                              "name": "string",
+                              "country": "string",
+                              "league": "string"
+                             }
+      *Responses*:   200 OK: Match successfully updated.
+                     400 Bad Request: Validation error in request body.
+                     404 Not Found: Match not found.
 
-    - *PUT /matches/{matchId}*: Update an existing match's information.
-        - *Parameters*: matchId (path parameter).
-        - *Request Body*: Updated match details.
-        - *Responses*: Confirmation of the match update.
-
-    - *DELETE /matches/{matchId}*: Delete a match.
-        - *Parameters*: matchId (path parameter).
-        - *Responses*: Confirmation of the match deletion.
-
+      v.Delete Match:
+      *Endpoint*: DELETE /matches/{matchId}
+      *Description*: Delete a match from the system.
+      *Parameters*:matchId (path): Unique identifier for the match.
+      *Responses*: 200 OK: Match successfully deleted.
+                   404 Not Found: Match not found.
+   
 3. *Leagues Resource*
-    - *GET /leagues*: Retrieve a list of all football leagues.
-        - *Parameters*: Optional filters (e.g., country).
-        - *Responses*: Returns a list of leagues.
+   i.Retrieve Leagues:
+   *Endpoint*: GET /leagues
+   *Description*: Retrieve a list of all football leagues.
+   *Parameters*: Optional filters (e.g., country).
+   *Responses*:   200 OK: List of leagues successfully retrieved.
+                  400 Bad Request: Invalid filter parameters.
 
-    - *GET /leagues/{leagueId}*: Retrieve detailed information about a specific league.
-        - *Parameters*: leagueId (path parameter).
-        - *Responses*: Detailed information about the league, including teams and standings.
+   ii.Retrieve Specific League:
+   *Endpoint*: GET /leagues/{leagueId}
+   *Description*: Retrieve detailed information about a specific league.
+   *Parameters*: leagueId (path): Unique identifier for the league.
+   *Responses*:   200 OK: League details successfully retrieved.
+                  404 Not Found: League not found.
 
-    - *POST /leagues*: Add a new league.
-        - *Request Body*: League details (e.g., name, country).
-        - *Responses*: Confirmation of the league creation.
+   iii.Add League:
+   *Endpoint*: POST /leagues
+   *Description*: Add a new football league to the system.
+   *Request Body (JSON)*:{
+                           "name": "string",
+                           "country": "string",
+                           "level": "number"
+                          }
+   *Responses*:   201 Created: League successfully added.
+                  400 Bad Request: Validation error in request body.
 
-    - *PUT /leagues/{leagueId}*: Update information for an existing league.
-        - *Parameters*: leagueId (path parameter).
-        - *Request Body*: Updated league details.
-        - *Responses*: Confirmation of the league update.
+   iv.Update match:
+   *Endpoint*: PUT /leagues/{leagueId}
+   *Description*: Update information for an existing league.
+   *Parameters*: leagueId (path): Unique identifier for the league.
+   *Request Body (JSON)*:{
+                          "name": "string",
+                          "country": "string",
+                          "level": "number"
+   }
+   *Responses*:   200 OK: League successfully updated.
+                  400 Bad Request: Validation error in request body.
+                  404 Not Found: League not found.
 
-    - *DELETE /leagues/{leagueId}*: Delete a league from the system.
-        - *Parameters*: leagueId (path parameter).
-        - *Responses*: Confirmation of the league deletion.
-
-4. *Search Resource*
-    - *GET /search*: Search across matches, teams, and leagues using Elasticsearch.
-        - *Parameters*: Query parameters for search terms (e.g., team name, league, match date).
-        - *Responses*: Returns a list of relevant results, including matches, teams, or leagues.
-
+   v.Delete Match:
+   *Endpoint*: DELETE /leagues/{leagueId}
+   *Description*: Delete a league from the system.
+   *Parameters*: leagueId (path): Unique identifier for the league.
+   *Responses*: 200 OK: League successfully deleted.
+                404 Not Found: League not found.
