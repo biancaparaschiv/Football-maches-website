@@ -61,12 +61,8 @@ The web application includes a **RESTful API** enabling interactions with footba
     "league": "string"
   }
 - **Responses**:
-
-#### 201 Created:
-- Team successfully added.
-
-#### 400 Bad Request:
-- Validation error in request body.
+    - `201 Created`: Team successfully added.
+    - `400 Bad Request`: Validation error in request body.
 
 ### iv. Update Team:
 - **Endpoint:** `PUT /teams/{teamId}`
