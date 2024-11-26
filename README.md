@@ -25,7 +25,7 @@ making it easy for developers to explore and understand the available APIs.
    *Endpoint*: GET /teams\
    *Description*: Retrieve a list of all teams.\
    *Parameters*: Optional filters (e.g., country, league).\
-   *Responses*:\   
+   *Responses*: 
 200 OK: List of teams successfully retrieved.\
                   400 Bad Request: Invalid filter parameters.\
 \
@@ -33,33 +33,33 @@ making it easy for developers to explore and understand the available APIs.
    *Endpoint*: GET /teams/{teamId}\
    *Description*: Retrieve detailed information about a specific team.\
    *Parameters*: teamId (path): Unique identifier for the team.\
-   *Responses*:\  
+   *Responses*:
 200 OK: Team details successfully retrieved.\
                   404 Not Found: Team not found.\
 \
    iii.Add Team:\
    *Endpoint*: POST /teams\
    *Description*: Add a new football team to the system.\
-   *Request Body (JSON)*:\
+   *Request Body (JSON)*:
 {\
                            "name": "string",\
                            "country": "string",\
                            "league": "string"\
                           }\
-   *Responses*:\  
+   *Responses*:
 201 Created: Team successfully added.\
                  400 Bad Request: Validation error in request body.\
-\
+
    iv.Update Team:\
    *Endpoint*: PUT /teams/{teamId}\
    *Description*: Update information for an existing team.\
-   *Request Body (JSON)*:\
+   *Request Body (JSON)*:
 {\
                            "name": "string",\
                            "country": "string",\
                            "league": "string"\
                           }\
-   *Responses*:\   
+   *Responses*:
 200 OK: Team successfully updated.\
                   400 Bad Request: Validation error in request body.\
                   404 Not Found: Team not found.\
@@ -68,7 +68,7 @@ making it easy for developers to explore and understand the available APIs.
    *Endpoint*: DELETE /teams/{teamId}\
    *Description*: Delete a team from the system.\
    *Parameters*: teamId (path): Unique identifier for the team.\
-   *Responses*:\ 
+   *Responses*:
 200 OK: Team successfully deleted.\
                 403 Forbidden: Unauthorized access.\
                 404 Not Found: Team not found.\
@@ -78,7 +78,7 @@ making it easy for developers to explore and understand the available APIs.
       *Endpoint*: GET /matches\
       *Description*: Retrieve a list of all matches.\
       *Parameters*: Optional filters (e.g., date, league, team).\
-      *Responses*:\   
+      *Responses*:
    200 OK: List of matches successfully retrieved.\
                      400 Bad Request: Invalid filter parameters.\
 
@@ -86,14 +86,14 @@ making it easy for developers to explore and understand the available APIs.
       *Endpoint*: GET /matches/{matchId}\
       *Description*: Retrieve detailed information about a specific match.\
       *Parameters*: matchId (path): Unique identifier for the match.\
-      *Responses*:\   
+      *Responses*:  
    200 OK: Match details successfully retrieved.\
                      404 Not Found: Match not found.\
 
       iii.Add Match:\
       *Endpoint*: POST /matches\
       *Description*: Add a new football match to the system.\
-      *Request Body (JSON)*:\
+      *Request Body (JSON)*:
    {\
                               "date": "string",\
                               "teams": ["string", "string"],\
@@ -102,7 +102,7 @@ making it easy for developers to explore and understand the available APIs.
                               "team1": "number",\
                               "team2": "number"\
                              }\
-      *Responses*:\  
+      *Responses*:
    201 Created: Match successfully added.\
                      400 Bad Request: Validation error in request body.\
 
@@ -110,13 +110,13 @@ making it easy for developers to explore and understand the available APIs.
       *Endpoint*: PUT /matches/{matchId}\
       *Description*: Update details of an existing match.\
       *Parameters*: matchId (path): Unique identifier for the match.\
-      *Request Body (JSON)*:\
+      *Request Body (JSON)*:
    {\
                               "name": "string",\
                               "country": "string",\
                               "league": "string"\
                              }\
-      *Responses*:\   
+      *Responses*:
    200 OK: Match successfully updated.\
                      400 Bad Request: Validation error in request body.\
                      404 Not Found: Match not found.\
@@ -125,7 +125,7 @@ making it easy for developers to explore and understand the available APIs.
       *Endpoint*: DELETE /matches/{matchId}\
       *Description*: Delete a match from the system.\
       *Parameters*:matchId (path): Unique identifier for the match.\
-      *Responses*:\ 
+      *Responses*:
    200 OK: Match successfully deleted.\
                    404 Not Found: Match not found.\
    
@@ -134,7 +134,7 @@ making it easy for developers to explore and understand the available APIs.
    *Endpoint*: GET /leagues\
    *Description*: Retrieve a list of all football leagues.\
    *Parameters*: Optional filters (e.g., country).\
-   *Responses*:\
+   *Responses*:
 200 OK: List of leagues successfully retrieved.\
                   400 Bad Request: Invalid filter parameters.\
 
@@ -142,14 +142,14 @@ making it easy for developers to explore and understand the available APIs.
    *Endpoint*: GET /leagues/{leagueId}\
    *Description*: Retrieve detailed information about a specific league.\
    *Parameters*: leagueId (path): Unique identifier for the league.\
-   *Responses*: \
+   *Responses*:
 200 OK: League details successfully retrieved.\
                   404 Not Found: League not found.\
 
    iii.Add League:\
    *Endpoint*: POST /leagues\
    *Description*: Add a new football league to the system.\
-   *Request Body (JSON)*:\
+   *Request Body (JSON)*:
 {\
                            "name": "string",\
                            "country": "string",\
@@ -163,13 +163,13 @@ making it easy for developers to explore and understand the available APIs.
    *Endpoint*: PUT /leagues/{leagueId}\
    *Description*: Update information for an existing league.\
    *Parameters*: leagueId (path): Unique identifier for the league.\
-   *Request Body (JSON)*:\
+   *Request Body (JSON)*:
 {\
                           "name": "string",\
                           "country": "string",\
                           "level": "number"\
    }\
-   *Responses*:\
+   *Responses*:
 200 OK: League successfully updated.\
                   400 Bad Request: Validation error in request body.\
                   404 Not Found: League not found.\
@@ -178,6 +178,6 @@ making it easy for developers to explore and understand the available APIs.
    *Endpoint*: DELETE /leagues/{leagueId}\
    *Description*: Delete a league from the system.\
    *Parameters*: leagueId (path): Unique identifier for the league.\
-   *Responses*:\
+   *Responses*:
 200 OK: League successfully deleted.\
                 404 Not Found: League not found.\
