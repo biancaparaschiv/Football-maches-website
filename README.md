@@ -21,38 +21,38 @@ making it easy for developers to explore and understand the available APIs.
 
 1. *Teams Resource*
    
-   i.Retrieve Teams:
-   *Endpoint*: GET /teams
-   *Description*: Retrieve a list of all teams.
-   *Parameters*: Optional filters (e.g., country, league).
-   *Responses*:   200 OK: List of teams successfully retrieved.
-                  400 Bad Request: Invalid filter parameters.
-
-   ii.Retrieve Specific Team:
-   *Endpoint*: GET /teams/{teamId}
-   *Description*: Retrieve detailed information about a specific team.
-   *Parameters*: teamId (path): Unique identifier for the team.
-   *Responses*:   200 OK: Team details successfully retrieved.
-                  404 Not Found: Team not found.
-
-   iii.Add Team:
-   *Endpoint*: POST /teams
-   *Description*: Add a new football team to the system.
-   *Request Body (JSON)*:{
-                           "name": "string",
-                           "country": "string",
-                           "league": "string"
-                          }
-   *Responses*:   201 Created: Team successfully added.
-                  400 Bad Request: Validation error in request body.
-
-   iv.Update Team:
-   *Endpoint*: PUT /teams/{teamId}
-   *Description*: Update information for an existing team.
-   *Request Body (JSON)*:{
-                           "name": "string",
-                           "country": "string",
-                           "league": "string"
+   i.Retrieve Teams:\
+   *Endpoint*: GET /teams\
+   *Description*: Retrieve a list of all teams.\
+   *Parameters*: Optional filters (e.g., country, league).\
+   *Responses*:   200 OK: List of teams successfully retrieved.\
+                  400 Bad Request: Invalid filter parameters.\
+\
+   ii.Retrieve Specific Team:\
+   *Endpoint*: GET /teams/{teamId}\
+   *Description*: Retrieve detailed information about a specific team.\
+   *Parameters*: teamId (path): Unique identifier for the team.\
+   *Responses*:   200 OK: Team details successfully retrieved.\
+                  404 Not Found: Team not found.\
+\
+   iii.Add Team:\
+   *Endpoint*: POST /teams\
+   *Description*: Add a new football team to the system.\
+   *Request Body (JSON)*:{\
+                           "name": "string",\
+                           "country": "string",\
+                           "league": "string"\
+                          }\
+   *Responses*:   201 Created: Team successfully added.\
+                  400 Bad Request: Validation error in request body.\
+\
+   iv.Update Team:\
+   *Endpoint*: PUT /teams/{teamId}\
+   *Description*: Update information for an existing team.\
+   *Request Body (JSON)*:{\
+                           "name": "string",\
+                           "country": "string",\
+                           "league": "string"\
                           }
    *Responses*:   200 OK: Team successfully updated.
                   400 Bad Request: Validation error in request body.
